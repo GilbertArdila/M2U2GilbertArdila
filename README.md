@@ -1,2 +1,2 @@
 # M2U2GilbertArdila
-Repositorio ejercicio 2 reactjs
+Repositorio modulo 2 unidad 2 Reactjs FIMLM
