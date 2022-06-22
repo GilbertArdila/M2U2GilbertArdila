@@ -1,7 +1,6 @@
 //getting inputs form html
 const studentName=document.querySelector(".name");
 const subject=document.querySelector(".subject");
-const subjectValue=document.querySelector(".subjectValue");
 const miscelanious=document.querySelector(".miscelanious");
 const discount=document.querySelector(".discount");
 const totalAmount=document.querySelector(".totalAmount");
@@ -19,6 +18,7 @@ const p=document.querySelector(".answer");
 const section1=document.querySelector(".exercise1");
 const section2=document.querySelector(".exercise2");
 const back=document.querySelector(".back");
+const showSubjectInput=document.querySelector(".showSubjectInput");
 
 //listening click on anny option
 ej1.onclick=()=>{
@@ -26,6 +26,7 @@ ej1.onclick=()=>{
     section2.classList.add("hidden");
     section1.classList.remove("hidden");
     back.classList.remove("hidden");
+    send.classList.add("hidden");
    
 
 }
@@ -59,13 +60,39 @@ Crear un algoritmo que le permita al usuario ingresar:
                 descuento del 20% más los costos fijos.
 */
 
-
+//showing number of ssubjects
+showSubjectInput.onclick=(e)=>{
+  e.preventDefault();
+  const div=document.querySelector(".subjectsValues");
+  let subjectAmount=subject.value;
+  for(let i=0;i<subjectAmount;i++){
+     const label=document.createElement("label");
+     const labelText=document.createTextNode(`Ingresa el valor de la materia ${i+1} `);
+     label.appendChild(labelText);
+     const input=document.createElement("input");
+     input.classList.add("subjectValue");
+     input.setAttribute("type","number");
+     div.appendChild(label);
+     div.appendChild(input);
+ 
+  }
+  showSubjectInput.classList.add("hidden");
+  send.classList.remove("hidden");
+}
 
 //adding listener to the click button
 send.addEventListener("click",function(e){
  e.preventDefault()
-
-const total=parseInt((subject.value)*parseInt(subjectValue.value));
+ //getting the inputs
+ const subjectValue=document.querySelectorAll(".subjectValue");
+  let values=[];
+  //getting the inputs values and pushing into an array
+  for(let i=0;i<subjectValue.length;i++){
+    values.push(parseInt(subjectValue[i].value) );
+  }
+//adding values using reduce
+const total=values.reduce((sum,element)=>sum+element,0);
+//calculating total amount
 const granTotal=20*total/100;
 miscelanious.value=28000;
 discount.value=granTotal;
