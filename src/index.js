@@ -20,7 +20,7 @@ const section1=document.querySelector(".exercise1");
 const section2=document.querySelector(".exercise2");
 const back=document.querySelector(".back");
 
-
+//listening click on anny option
 ej1.onclick=()=>{
     election.classList.add("hidden");
     section2.classList.add("hidden");
@@ -36,6 +36,7 @@ ej2.onclick=()=>{
     back.classList.remove("hidden");
     
 }
+//listening click on back option
 back.onclick=()=>{
 election.classList.remove("hidden");
 section1.classList.add("hidden");
@@ -108,7 +109,10 @@ check.addEventListener("click",function(e){
         duplicados.push(newArray[i])
     }
   }
-  //verifing min and max
+  if(number1.value==='' || number2.value==='' || number3.value==='' || number4.value===''){
+    alert("No pueden haber campos vacíos")
+  }else{
+        //verifing min and max
    if(duplicados.length != 0){
     alert("Los números no pueden ser iguales")
    }else{
@@ -124,6 +128,8 @@ check.addEventListener("click",function(e){
       check.disabled = true;
     
    }
+  }
+ 
    })
 
 
