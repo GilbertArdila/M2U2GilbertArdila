@@ -70,7 +70,7 @@ showSubjectInput.onclick=(e)=>{
     const subjectLabelText=document.createTextNode(`Ingresa el nombre de la materia ${i+1} `);
     subjectLabel.appendChild(subjectLabelText);
     const subjectInput=document.createElement("input");
-    subjectInput.classList.add("subjectValue");
+    subjectInput.classList.add("subjectName");
     subjectInput.setAttribute("type","text");
 
      const label=document.createElement("label");
@@ -79,7 +79,7 @@ showSubjectInput.onclick=(e)=>{
      const input=document.createElement("input");
      input.classList.add("subjectValue");
      input.setAttribute("type","number");
-     
+
      div.appendChild(subjectLabel);
      div.appendChild( subjectInput);
 
