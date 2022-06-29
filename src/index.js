@@ -66,12 +66,23 @@ showSubjectInput.onclick=(e)=>{
   const div=document.querySelector(".subjectsValues");
   let subjectAmount=subject.value;
   for(let i=0;i<subjectAmount;i++){
+    const subjectLabel=document.createElement("label");
+    const subjectLabelText=document.createTextNode(`Ingresa el nombre de la materia ${i+1} `);
+    subjectLabel.appendChild(subjectLabelText);
+    const subjectInput=document.createElement("input");
+    subjectInput.classList.add("subjectValue");
+    subjectInput.setAttribute("type","text");
+
      const label=document.createElement("label");
      const labelText=document.createTextNode(`Ingresa el valor de la materia ${i+1} `);
      label.appendChild(labelText);
      const input=document.createElement("input");
      input.classList.add("subjectValue");
      input.setAttribute("type","number");
+     
+     div.appendChild(subjectLabel);
+     div.appendChild( subjectInput);
+
      div.appendChild(label);
      div.appendChild(input);
  
